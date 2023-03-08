@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SqlEditor } from "./SqlEditor";
 import { format } from "prettier";
 import * as plugin from "prettier-plugin-sql-cst";
@@ -20,11 +20,22 @@ function formatSql(sql: string): string {
 
 export function App() {
   const [sql, setSql] = useState(exampleSql);
+  const [formattedSql, setFormattedSql] = useState(exampleSql);
+
+  useEffect(() => {
+    try {
+      setFormattedSql(formatSql(sql));
+    } catch (e) {
+      if (e instanceof Error) {
+        setFormattedSql(e.message);
+      }
+    }
+  }, [sql, setFormattedSql]);
 
   return (
     <div className="App">
       <SqlEditor value={sql} onChange={setSql} />
-      <SqlEditor value={formatSql(sql)} />
+      <SqlEditor value={formattedSql} />
     </div>
   );
 }
