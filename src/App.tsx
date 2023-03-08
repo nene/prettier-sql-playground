@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { Dialect, DialectSelect } from "./DialectSelect";
+import { ForkMeOnGithub } from "./ForkMeOnGithub";
 import { formatSql } from "./formatSql";
 import { SqlEditor } from "./SqlEditor";
 
@@ -64,17 +65,20 @@ export function App() {
   }, [sql, dialect, setFormattedSql]);
 
   return (
-    <AppContainer>
-      <Header>
-        <Title>Prettier SQL formatting demo</Title>
-        dialect: <DialectSelect value={dialect} onChange={setDialect} />
-      </Header>
-      <LeftPane>
-        <SqlEditor value={sql} onChange={setSql} />
-      </LeftPane>
-      <RightPane>
-        <SqlEditor value={formattedSql} readOnly />
-      </RightPane>
-    </AppContainer>
+    <>
+      <AppContainer>
+        <Header>
+          <Title>Prettier SQL formatting demo</Title>
+          dialect: <DialectSelect value={dialect} onChange={setDialect} />
+        </Header>
+        <LeftPane>
+          <SqlEditor value={sql} onChange={setSql} />
+        </LeftPane>
+        <RightPane>
+          <SqlEditor value={formattedSql} readOnly />
+        </RightPane>
+      </AppContainer>
+      <ForkMeOnGithub />
+    </>
   );
 }
