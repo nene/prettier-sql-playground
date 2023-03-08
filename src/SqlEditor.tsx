@@ -3,11 +3,13 @@ import CodeEditor from "@uiw/react-textarea-code-editor";
 interface SqlEditorProps {
   value: string;
   onChange?: (sql: string) => void;
+  readOnly?: boolean;
 }
 
-export function SqlEditor({ value, onChange }: SqlEditorProps) {
+export function SqlEditor({ value, onChange, readOnly }: SqlEditorProps) {
   return (
     <CodeEditor
+      readOnly={readOnly}
       value={value}
       language="sql"
       placeholder="Write your SQL code here"
@@ -16,7 +18,8 @@ export function SqlEditor({ value, onChange }: SqlEditorProps) {
       padding={15}
       style={{
         fontSize: 14,
-        fontFamily: 'ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace',
+        fontFamily:
+          "ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace",
       }}
     />
   );

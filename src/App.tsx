@@ -35,7 +35,7 @@ export function App() {
   return (
     <div className="App">
       <SqlEditor value={sql} onChange={setSql} />
-      <SqlEditor value={formattedSql} />
+      <SqlEditor value={formattedSql} readOnly />
     </div>
   );
 }
