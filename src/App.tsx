@@ -42,12 +42,19 @@ const RightPane = styled(EditorPane)`
 `;
 
 const exampleSql = `
-select supplier_name,city from
-(select * from suppliers join addresses on suppliers.address_id=addresses.id)
-as suppliers
-where supplier_id>500
-order by supplier_name asc,city desc;
-`;
+--
+--paste your SQL in here
+--
+select client.id,
+  client.name client_name, organization.name org_name,
+  count((orders.id)) as nr_of_orders
+from client left join organization on client.organization_id=organization.id
+left join orders on orders.client_id=client.id
+where client.status = 'active'
+  and client.id in (28,214,457)
+  and orders.status in ('active','pending','processing')
+group by client.id order by client.name limit 100
+`.trim();
 
 export function App() {
   const [sql, setSql] = useState(exampleSql);
