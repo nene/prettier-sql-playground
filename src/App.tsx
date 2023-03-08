@@ -1,6 +1,22 @@
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 import { formatSql } from "./formatSql";
 import { SqlEditor } from "./SqlEditor";
+
+const AppContainer = styled.div`
+  margin: 10px;
+  display: grid;
+  height: calc(100vh - 20px);
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  column-gap: 10px;
+`;
+
+const EditorPane = styled.div`
+  background-color: rgb(22, 27, 34);
+  overflow-y: auto;
+  overflow-x: auto;
+`;
 
 const exampleSql = `
 select supplier_name,city from
@@ -25,9 +41,13 @@ export function App() {
   }, [sql, setFormattedSql]);
 
   return (
-    <div className="App">
-      <SqlEditor value={sql} onChange={setSql} />
-      <SqlEditor value={formattedSql} readOnly />
-    </div>
+    <AppContainer>
+      <EditorPane>
+        <SqlEditor value={sql} onChange={setSql} />
+      </EditorPane>
+      <EditorPane>
+        <SqlEditor value={formattedSql} readOnly />
+      </EditorPane>
+    </AppContainer>
   );
 }
