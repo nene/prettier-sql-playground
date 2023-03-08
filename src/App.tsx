@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { Dialect, DialectSelect } from "./DialectSelect";
 import { formatSql } from "./formatSql";
 import { SqlEditor } from "./SqlEditor";
 
@@ -23,6 +24,8 @@ const Title = styled.h1`
   margin: 0;
   font-size: 32px;
   font-weight: normal;
+  display: inline-block;
+  padding-right: 32px;
 `;
 
 const EditorPane = styled.div`
@@ -48,21 +51,23 @@ order by supplier_name asc,city desc;
 export function App() {
   const [sql, setSql] = useState(exampleSql);
   const [formattedSql, setFormattedSql] = useState(exampleSql);
+  const [dialect, setDialect] = useState<Dialect>("sqlite");
 
   useEffect(() => {
     try {
-      setFormattedSql(formatSql(sql));
+      setFormattedSql(formatSql(sql, dialect));
     } catch (e) {
       if (e instanceof Error) {
         setFormattedSql(e.message);
       }
     }
-  }, [sql, setFormattedSql]);
+  }, [sql, dialect, setFormattedSql]);
 
   return (
     <AppContainer>
       <Header>
         <Title>Prettier SQL formatting demo</Title>
+        dialect: <DialectSelect value={dialect} onChange={setDialect} />
       </Header>
       <LeftPane>
         <SqlEditor value={sql} onChange={setSql} />
