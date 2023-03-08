@@ -5,17 +5,36 @@ import { SqlEditor } from "./SqlEditor";
 
 const AppContainer = styled.div`
   margin: 10px;
-  display: grid;
   height: calc(100vh - 20px);
+  display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-rows: 40px 1fr;
   column-gap: 10px;
+  row-gap: 10px;
+  grid-template-areas:
+    "header header"
+    "left right";
+`;
+
+const Header = styled.div`
+  grid-area: header;
+`;
+const Title = styled.h1`
+  margin: 0;
+  font-size: 32px;
+  font-weight: normal;
 `;
 
 const EditorPane = styled.div`
   background-color: rgb(22, 27, 34);
   overflow-y: auto;
   overflow-x: auto;
+`;
+const LeftPane = styled(EditorPane)`
+  grid-area: left;
+`;
+const RightPane = styled(EditorPane)`
+  grid-area: right;
 `;
 
 const exampleSql = `
@@ -42,12 +61,15 @@ export function App() {
 
   return (
     <AppContainer>
-      <EditorPane>
+      <Header>
+        <Title>Prettier SQL formatting demo</Title>
+      </Header>
+      <LeftPane>
         <SqlEditor value={sql} onChange={setSql} />
-      </EditorPane>
-      <EditorPane>
+      </LeftPane>
+      <RightPane>
         <SqlEditor value={formattedSql} readOnly />
-      </EditorPane>
+      </RightPane>
     </AppContainer>
   );
 }
