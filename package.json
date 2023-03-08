@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "sh deploy.sh"
   },
   "dependencies": {
     "@uiw/react-textarea-code-editor": "^2.1.1",
