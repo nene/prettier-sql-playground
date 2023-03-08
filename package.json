@@ -10,10 +10,13 @@
   },
   "dependencies": {
     "@uiw/react-textarea-code-editor": "^2.1.1",
+    "prettier": "^2.8.4",
+    "prettier-plugin-sql-cst": "^0.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@types/prettier": "^2.7.2",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
