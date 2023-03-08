@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
+import { formatSql } from "./formatSql";
 import { SqlEditor } from "./SqlEditor";
-import { format } from "prettier";
-import * as plugin from "prettier-plugin-sql-cst";
 
 const exampleSql = `
 select supplier_name,city from
@@ -10,13 +9,6 @@ as suppliers
 where supplier_id>500
 order by supplier_name asc,city desc;
 `;
-
-function formatSql(sql: string): string {
-  return format(sql, {
-    parser: "sqlite",
-    plugins: [plugin],
-  });
-}
 
 export function App() {
   const [sql, setSql] = useState(exampleSql);
