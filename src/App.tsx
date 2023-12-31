@@ -62,13 +62,16 @@ export function App() {
   const [dialect, setDialect] = useState<Dialect>("sqlite");
 
   useEffect(() => {
-    try {
-      setFormattedSql(formatSql(sql, dialect));
-    } catch (e) {
-      if (e instanceof Error) {
-        setFormattedSql(e.message);
+    const runPrettier = async () => {
+      try {
+        setFormattedSql(await formatSql(sql, dialect));
+      } catch (e) {
+        if (e instanceof Error) {
+          setFormattedSql(e.message);
+        }
       }
     }
+    runPrettier();
   }, [sql, dialect, setFormattedSql]);
 
   return (
