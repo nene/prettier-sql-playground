@@ -1,7 +1,3 @@
-import { SqlPluginOptions } from "prettier-plugin-sql-cst";
-
-export type KeywordCase = SqlPluginOptions["sqlCanonicalSyntax"];
-
 interface CanonicalSyntaxToggleProps {
   value: boolean;
   onChange: (value: boolean) => void;
