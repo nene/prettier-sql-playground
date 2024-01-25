@@ -1,15 +1,16 @@
 import { DialectName } from "sql-parser-cst";
 
-export type Dialect = DialectName;
-
 interface DialectSelectProps {
-  value: Dialect;
-  onChange: (dialect: Dialect) => void;
+  value: DialectName;
+  onChange: (dialect: DialectName) => void;
 }
 
 export function DialectSelect({ value, onChange }: DialectSelectProps) {
   return (
-    <select value={value} onChange={(e) => onChange(e.target.value as Dialect)}>
+    <select
+      value={value}
+      onChange={(e) => onChange(e.target.value as DialectName)}
+    >
       <option value="sqlite">SQLite</option>
       <option value="bigquery">BigQuery</option>
       <option value="postgresql">Experimental PostgreSQL</option>
