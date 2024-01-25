@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Dialect, DialectSelect } from "./DialectSelect";
+import { Dialect, DialectSelect } from "./options/DialectSelect";
 import { ForkMeOnGithub } from "./ForkMeOnGithub";
 import { formatSql } from "./formatSql";
 import { SqlEditor } from "./SqlEditor";
-import { KeywordCase, KeywordCaseSelect } from "./KeywordCaseSelect";
+import { KeywordCase, KeywordCaseSelect } from "./options/KeywordCaseSelect";
 
 const AppContainer = styled.div`
   margin: 10px;

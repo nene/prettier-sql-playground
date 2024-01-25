@@ -1,7 +1,7 @@
 import { format } from "prettier";
 import * as plugin from "prettier-plugin-sql-cst";
 import { SqlPluginOptions } from "prettier-plugin-sql-cst";
-import { Dialect } from "./DialectSelect";
+import { Dialect } from "./options/DialectSelect";
 
 export function formatSql(
   sql: string,
