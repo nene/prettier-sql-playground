@@ -1,12 +1,11 @@
 import { format } from "prettier";
+import { DialectName } from "sql-parser-cst";
 import * as plugin from "prettier-plugin-sql-cst";
 import { SqlPluginOptions } from "prettier-plugin-sql-cst";
-import { Dialect } from "./options/DialectSelect";
 
 export function formatSql(
   sql: string,
-  dialect: Dialect,
-  options: Partial<SqlPluginOptions>,
+  { dialect, ...options }: Partial<SqlPluginOptions> & { dialect: DialectName },
 ): Promise<string> {
   return format(sql, {
     parser: dialect,

@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Dialect, DialectSelect } from "./options/DialectSelect";
 import { ForkMeOnGithub } from "./ForkMeOnGithub";
 import { formatSql } from "./formatSql";
 import { SqlEditor } from "./SqlEditor";
-import { KeywordCase, KeywordCaseSelect } from "./options/KeywordCaseSelect";
+import { Options, OptionsBar } from "./options/OptionsBar";
 
 const AppContainer = styled.div`
   margin: 10px;
@@ -60,15 +59,15 @@ group by client.id order by client.name limit 100
 export function App() {
   const [sql, setSql] = useState(exampleSql);
   const [formattedSql, setFormattedSql] = useState(exampleSql);
-  const [dialect, setDialect] = useState<Dialect>("sqlite");
-  const [keywordCase, setKeywordCase] = useState<KeywordCase>("upper");
+  const [options, setOptions] = useState<Options>({
+    dialect: "sqlite",
+    sqlKeywordCase: "upper",
+  });
 
   useEffect(() => {
     const runPrettier = async () => {
       try {
-        setFormattedSql(
-          await formatSql(sql, dialect, { sqlKeywordCase: keywordCase }),
-        );
+        setFormattedSql(await formatSql(sql, options));
       } catch (e) {
         if (e instanceof Error) {
           setFormattedSql(e.message);
@@ -76,16 +75,14 @@ export function App() {
       }
     };
     runPrettier();
-  }, [sql, dialect, keywordCase, setFormattedSql]);
+  }, [sql, options, setFormattedSql]);
 
   return (
     <>
       <AppContainer>
         <Header>
           <Title>Prettier SQL formatting demo</Title>
-          dialect: <DialectSelect value={dialect} onChange={setDialect} />{" "}
-          keywords:{" "}
-          <KeywordCaseSelect value={keywordCase} onChange={setKeywordCase} />
+          <OptionsBar value={options} onChange={setOptions} />
         </Header>
         <LeftPane>
           <SqlEditor value={sql} onChange={setSql} />
