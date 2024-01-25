@@ -1,3 +1,4 @@
+import styled from "styled-components";
 import { DialectName } from "sql-parser-cst";
 import { KeywordCase, KeywordCaseSelect } from "./KeywordCaseSelect";
 import { DialectSelect } from "./DialectSelect";
@@ -16,23 +17,38 @@ interface OptionsBarProps {
 
 export function OptionsBar({ value, onChange }: OptionsBarProps) {
   return (
-    <span>
-      dialect:{" "}
-      <DialectSelect
-        value={value.dialect}
-        onChange={(dialect) => onChange({ ...value, dialect })}
-      />{" "}
-      keywords:{" "}
-      <KeywordCaseSelect
-        value={value.sqlKeywordCase}
-        onChange={(sqlKeywordCase) => onChange({ ...value, sqlKeywordCase })}
-      />{" "}
-      <CanonicalSyntaxToggle
-        value={value.sqlCanonicalSyntax}
-        onChange={(sqlCanonicalSyntax) =>
-          onChange({ ...value, sqlCanonicalSyntax })
-        }
-      />
-    </span>
+    <OptionsBarArea>
+      <OptionItem>
+        dialect:{" "}
+        <DialectSelect
+          value={value.dialect}
+          onChange={(dialect) => onChange({ ...value, dialect })}
+        />
+      </OptionItem>
+      <OptionItem>
+        keywords:{" "}
+        <KeywordCaseSelect
+          value={value.sqlKeywordCase}
+          onChange={(sqlKeywordCase) => onChange({ ...value, sqlKeywordCase })}
+        />
+      </OptionItem>
+      <OptionItem>
+        <CanonicalSyntaxToggle
+          value={value.sqlCanonicalSyntax}
+          onChange={(sqlCanonicalSyntax) =>
+            onChange({ ...value, sqlCanonicalSyntax })
+          }
+        />
+      </OptionItem>
+    </OptionsBarArea>
   );
 }
+
+const OptionsBarArea = styled.span`
+  display: flex;
+  // align items at the bottom of the container
+  align-items: flex-end;
+  gap: 1rem;
+`;
+
+const OptionItem = styled.span``;

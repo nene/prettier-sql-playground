@@ -20,6 +20,7 @@ const AppContainer = styled.div`
 
 const Header = styled.div`
   grid-area: header;
+  display: flex;
 `;
 const Title = styled.h1`
   margin: 0;
