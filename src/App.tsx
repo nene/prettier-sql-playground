@@ -62,6 +62,7 @@ export function App() {
   const [options, setOptions] = useState<Options>({
     dialect: "sqlite",
     sqlKeywordCase: "upper",
+    sqlCanonicalSyntax: true,
   });
 
   useEffect(() => {
