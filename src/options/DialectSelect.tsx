@@ -1,4 +1,6 @@
-export type Dialect = "sqlite" | "bigquery";
+import { DialectName } from "sql-parser-cst";
+
+export type Dialect = DialectName;
 
 interface DialectSelectProps {
   value: Dialect;
