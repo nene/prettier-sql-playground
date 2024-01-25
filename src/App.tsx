@@ -64,6 +64,7 @@ export function App() {
     dialect: "sqlite",
     sqlKeywordCase: "upper",
     sqlCanonicalSyntax: true,
+    sqlParamTypes: ["?"],
   });
 
   useEffect(() => {

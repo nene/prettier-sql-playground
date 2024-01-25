@@ -3,11 +3,13 @@ import { DialectName } from "sql-parser-cst";
 import { KeywordCase, KeywordCaseSelect } from "./KeywordCaseSelect";
 import { DialectSelect } from "./DialectSelect";
 import { CanonicalSyntaxToggle } from "./CanonicalSyntaxToggle";
+import { ParamType, ParamsDropdown } from "./ParamsDropdown";
 
 export type Options = {
   dialect: DialectName;
   sqlKeywordCase: KeywordCase;
   sqlCanonicalSyntax: boolean;
+  sqlParamTypes: ParamType[];
 };
 
 interface OptionsBarProps {
@@ -38,6 +40,12 @@ export function OptionsBar({ value, onChange }: OptionsBarProps) {
           onChange={(sqlCanonicalSyntax) =>
             onChange({ ...value, sqlCanonicalSyntax })
           }
+        />
+      </OptionItem>
+      <OptionItem>
+        <ParamsDropdown
+          value={value.sqlParamTypes}
+          onChange={(sqlParamTypes) => onChange({ ...value, sqlParamTypes })}
         />
       </OptionItem>
     </OptionsBarArea>
