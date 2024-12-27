@@ -948,13 +948,13 @@ postcss@^8.4.21:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-prettier-plugin-sql-cst@^0.11.7:
-  version "0.11.7"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-sql-cst/-/prettier-plugin-sql-cst-0.11.7.tgz#bf9b9b5c6ff3f73f210427321a25a9718ce14a47"
-  integrity sha512-A1QJG4zXjOpBHOlgr3bZfSv7VtcsbL1kbFIVasRKQfZxTP4fRLAL+tL7eKxStmQAxlftkxEsC25dPKnqf55Upg==
+prettier-plugin-sql-cst@^0.12.1:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-sql-cst/-/prettier-plugin-sql-cst-0.12.1.tgz#ef75e33541e0be31ef79207804993d29a565ce84"
+  integrity sha512-BKTct7N8E9em7C1D6NFV+ceHyciRxxhW7oi17wRuYsgchN0T7IZHEZn7L8MiIJDVqvIPMYrV3zGEJg188V5RMA==
   dependencies:
     prettier "^3.0.3"
-    sql-parser-cst "^0.28.1"
+    sql-parser-cst "^0.31.1"
 
 prettier@^3.0.3:
   version "3.1.1"
@@ -1090,10 +1090,10 @@ space-separated-tokens@^2.0.0:
   resolved "https://registry.yarnpkg.com/space-separated-tokens/-/space-separated-tokens-2.0.2.tgz#1ecd9d2350a3844572c3f4a312bceb018348859f"
   integrity sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==
 
-sql-parser-cst@^0.28.1:
-  version "0.28.1"
-  resolved "https://registry.yarnpkg.com/sql-parser-cst/-/sql-parser-cst-0.28.1.tgz#7484d78306a8ea03dae647c9c8bc9f93675bae0a"
-  integrity sha512-m0CW4hxiMV4dySY9P+bkBvuSULQ4u0NuuQrkVSENUCf103+m24EQ6oARwcDYbHE1pBw5HOwU88VgB9h8yqWc9g==
+sql-parser-cst@^0.31.1:
+  version "0.31.1"
+  resolved "https://registry.yarnpkg.com/sql-parser-cst/-/sql-parser-cst-0.31.1.tgz#c7d4e1b3f355e7f687aec2682f69f0593c2f1892"
+  integrity sha512-Af1QRnlMwDPQHFXrnt4lSYXxxEHvB/UvYroOe3oHFvfxZhGZ4uKlFSCCPoIhN3lReBQJIoXFwkNCTsS7rYUX7Q==
 
 stringify-entities@^4.0.0:
   version "4.0.3"
