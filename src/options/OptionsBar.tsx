@@ -8,6 +8,7 @@ import { ParamType, ParamsDropdown } from "./ParamsDropdown";
 export type Options = {
   dialect: DialectName;
   sqlKeywordCase: KeywordCase;
+  sqlLiteralCase: KeywordCase;
   sqlCanonicalSyntax: boolean;
   sqlParamTypes: ParamType[];
 };
@@ -32,6 +33,13 @@ export function OptionsBar({ value, onChange }: OptionsBarProps) {
         <KeywordCaseSelect
           value={value.sqlKeywordCase}
           onChange={(sqlKeywordCase) => onChange({ ...value, sqlKeywordCase })}
+        />
+      </OptionItem>
+      <OptionItem>
+        literals:{" "}
+        <KeywordCaseSelect
+          value={value.sqlLiteralCase}
+          onChange={(sqlLiteralCase) => onChange({ ...value, sqlLiteralCase })}
         />
       </OptionItem>
       <OptionItem>

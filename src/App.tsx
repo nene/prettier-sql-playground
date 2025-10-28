@@ -63,6 +63,7 @@ export function App() {
   const [options, setOptions] = useState<Options>({
     dialect: "sqlite",
     sqlKeywordCase: "upper",
+    sqlLiteralCase: "upper",
     sqlCanonicalSyntax: true,
     sqlParamTypes: ["?"],
   });
