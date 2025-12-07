@@ -64,6 +64,9 @@ export function App() {
     dialect: "sqlite",
     sqlKeywordCase: "upper",
     sqlLiteralCase: "upper",
+    sqlTypeCase: "upper",
+    sqlIdentifierCase: "preserve",
+    sqlFunctionCase: "preserve",
     sqlCanonicalSyntax: true,
     sqlParamTypes: ["?"],
   });

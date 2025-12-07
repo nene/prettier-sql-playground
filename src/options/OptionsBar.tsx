@@ -9,6 +9,9 @@ export type Options = {
   dialect: DialectName;
   sqlKeywordCase: WordCase;
   sqlLiteralCase: WordCase;
+  sqlTypeCase: WordCase;
+  sqlIdentifierCase: WordCase;
+  sqlFunctionCase: WordCase;
   sqlCanonicalSyntax: boolean;
   sqlParamTypes: ParamType[];
 };
@@ -43,6 +46,31 @@ export function OptionsBar({ value, onChange }: OptionsBarProps) {
         />
       </OptionItem>
       <OptionItem>
+        types:{" "}
+        <WordCaseSelect
+          value={value.sqlTypeCase}
+          onChange={(sqlTypeCase) => onChange({ ...value, sqlTypeCase })}
+        />
+      </OptionItem>
+      <OptionItem>
+        identifiers:{" "}
+        <WordCaseSelect
+          value={value.sqlIdentifierCase}
+          onChange={(sqlIdentifierCase) =>
+            onChange({ ...value, sqlIdentifierCase })
+          }
+        />
+      </OptionItem>
+      <OptionItem>
+        functions:{" "}
+        <WordCaseSelect
+          value={value.sqlFunctionCase}
+          onChange={(sqlFunctionCase) =>
+            onChange({ ...value, sqlFunctionCase })
+          }
+        />
+      </OptionItem>
+      <OptionItem>
         <CanonicalSyntaxToggle
           value={value.sqlCanonicalSyntax}
           onChange={(sqlCanonicalSyntax) =>
@@ -65,6 +93,7 @@ const OptionsBarArea = styled.span`
   // align items at the bottom of the container
   align-items: flex-end;
   gap: 1rem;
+  padding-right: 12rem;
 `;
 
 const OptionItem = styled.span``;
