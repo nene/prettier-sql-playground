@@ -13,6 +13,7 @@ export type Options = {
   sqlIdentifierCase: WordCase;
   sqlFunctionCase: WordCase;
   sqlCanonicalSyntax: boolean;
+  sqlExperimentalPlpgsql: boolean;
   sqlParamTypes: ParamType[];
 };
 
@@ -27,8 +28,20 @@ export function OptionsBar({ value, onChange }: OptionsBarProps) {
       <OptionItem>
         dialect:{" "}
         <DialectSelect
-          value={value.dialect}
-          onChange={(dialect) => onChange({ ...value, dialect })}
+          value={
+            value.sqlExperimentalPlpgsql ? "postgresql+plpgsql" : value.dialect
+          }
+          onChange={(dialect) => {
+            if (dialect === "postgresql+plpgsql") {
+              onChange({
+                ...value,
+                dialect: "postgresql",
+                sqlExperimentalPlpgsql: true,
+              });
+            } else {
+              onChange({ ...value, dialect, sqlExperimentalPlpgsql: false });
+            }
+          }}
         />
       </OptionItem>
       <OptionItem>

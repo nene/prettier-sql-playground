@@ -69,6 +69,7 @@ export function App() {
     sqlFunctionCase: "preserve",
     sqlCanonicalSyntax: true,
     sqlParamTypes: ["?"],
+    sqlExperimentalPlpgsql: false,
   });
 
   useEffect(() => {
