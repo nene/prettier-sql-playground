@@ -948,10 +948,10 @@ postcss@^8.4.21:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-prettier-plugin-sql-cst@^0.22.0:
-  version "0.22.0"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-sql-cst/-/prettier-plugin-sql-cst-0.22.0.tgz#f29fbf7dfc9d068775273126db300d2d002738ab"
-  integrity sha512-PBD+fwwprlLe9KgSyudAdyS0XHvYCtAi6wWnsiGXqWM0uq2FjMooLAbd01EMSN4c3RTmOQ1ZwTZBfp2xJgUVpw==
+prettier-plugin-sql-cst@^0.22.1:
+  version "0.22.1"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-sql-cst/-/prettier-plugin-sql-cst-0.22.1.tgz#e61512816c8c7eb26aaff274af4fd746395b1e66"
+  integrity sha512-QEJnqIZ+KRykv+SzZmjwkQ+6qA5Xen+xyvNsMi9shCVqRVOyzz6t51pANy91ih9bZL9cmXAaBgmXp2bOMtZCpg==
   dependencies:
     prettier "^3.0.3"
     sql-parser-cst "^0.42.0"
