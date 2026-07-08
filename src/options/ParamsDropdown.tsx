@@ -32,9 +32,11 @@ function ParamsDropdownMenu({
     [
       { type: "?", isChecked: false },
       { type: "?nr", isChecked: false },
+      { type: "$nr", isChecked: false },
+      { type: "$name", isChecked: false },
       { type: ":name", isChecked: false },
       { type: "@name", isChecked: false },
-      { type: "$name", isChecked: false },
+      { type: "@`name`", isChecked: false },
     ] as OptionState[]
   ).map((option) => ({
     ...option,
